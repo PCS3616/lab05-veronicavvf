@@ -1,13 +1,18 @@
-@ /000                 
+@ /000                  
 INICIO   LV 0         
          MM N        
          MM QUAD     
          LV 1        
          MM SOMA    
+         LV 100       
+         MM ENDERECO   
 
 LOOP     LD QUAD     
-         MM ENDERECO
-         ST ENDERECO 
+         ST ENDERECO   
+
+         LD ENDERECO   
+         AD DOIS       
+         MM ENDERECO   
 
          LD QUAD    
          AD SOMA     
@@ -34,4 +39,5 @@ SOMA     K =1
 DOIS     K =2       
 UM       K =1       
 LIMITE   K =64      
-ENDERECO K =100      
+ENDERECO K =100     
+   
