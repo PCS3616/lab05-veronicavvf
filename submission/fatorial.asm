@@ -1,41 +1,22 @@
 
-@ /70
-K /8100      
-K /50C0      
-K /109E     
-K /8100      
-K /50C2    
-K /109E      
-K /8100     
-K /50C4     
-K /10A6    
-K /8100
-K /50C6
-K /10AE
-K /C088      
+SC INICIO
+HM /000
 
+VAL_1       K /0001  ; Constante com valor 1
+VAL_0       K /0000  ; Constante com valor 0
 
-@ /9E
-K /80C8      
-K /9102     
-K /C0A2      
+INICIO      K /000
+            LD /100  ; Carrega o valor de N (posição 0x100) no acumulador (AC)
+            SB VAL_1 ; Subtrai 1 de N (AC = N - 1)
+            MM /100  ; Armazena o novo valor de N
+            JZ FIM   ; Se N for 0, termina o programa
+            JN FIM   ; Se N for negativo, termina o programa
 
+            LD /102  ; Carrega o valor de RES (posição 0x102) no AC
+            ML /100  ; Multiplica AC por N (AC = RES * N)
+            MM /102  ; Armazena o resultado em RES
+            JP INICIO ; Repete o loop
 
-@ /A6
-K /80CA     
-K /9102    
-K /C0AA      
-
-@ /AE
-K /80CC     
-K /9102     
-K /C0B2      
-
-@ /C0
-K /0001; 
-K /0000;
-K /0004;
-K /0005; 
-K /0001
-K /0018
-K /0078
+FIM         LD /102  ; Carrega o valor de RES no AC
+            PD /100  ; Envia o valor no AC para o dispositivo de saída
+            HM /000  ; Para a máquina (halt)
