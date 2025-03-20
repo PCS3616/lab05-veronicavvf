@@ -1,6 +1,5 @@
 
 SC INICIO
-SC RESULTADO
 HM /000
 
 VAL_1       K /0001  ; Constante com valor 1
