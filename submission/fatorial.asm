@@ -17,8 +17,10 @@ INICIO      K /010
             JZ FIM   ; Se N for 0, termina o programa
             JN FIM   ; Se N for negativo, termina o programa
             JP INICIO 
+            
 
 
-RESULTADO    K/030
+FIM    K/030
             LD RESP_1
             MM /102
+            RS INICIO
